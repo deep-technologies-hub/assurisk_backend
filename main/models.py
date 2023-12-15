@@ -8,7 +8,7 @@ class PatientProfile(models.Model):
     date_de_naissance = models.DateField()
     sexe = models.CharField(max_length=10)
     adresse = models.TextField()
-    numero_de_telephone = models.CharField(max_length=20, validators=[RegexValidator(r'^\+?1?\d{9,15}$')])
+    numero_de_telephone = models.CharField(max_length=20)
 
     def __str__(self):
         return self.user.username
@@ -17,7 +17,7 @@ class PrestataireSoinsProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     nom = models.CharField(max_length=100)
     adresse = models.TextField()
-    numero_de_telephone = models.CharField(max_length=20, validators=[RegexValidator(r'^\+?1?\d{9,15}$')])
+    numero_de_telephone = models.CharField(max_length=20)
 
     def __str__(self):
         return self.nom
@@ -26,7 +26,7 @@ class PharmacieProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     nom = models.CharField(max_length=100)
     adresse = models.TextField()
-    numero_de_telephone = models.CharField(max_length=20, validators=[RegexValidator(r'^\+?1?\d{9,15}$')])
+    numero_de_telephone = models.CharField(max_length=20)
 
     def __str__(self):
         return self.nom
